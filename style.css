@@ -1,9 +1,13 @@
 .images{
-	height: 3000px;
-	width: 6000px;
+	height: 353px;
+	width: 900px;
 }
 .details{
-	height: 3000px;
-	width: 6000px;
+	height: 450px;
+	width: 900px;
 	border: 1px solid black;
+}
+img {
+	height: 24%;
+	width: 24%;
 }

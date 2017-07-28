@@ -10,13 +10,45 @@
 	</head>
 	<body>
 	<div class = "images">
-		<img src = "images/baratheon.png">
-		<img src = "images/lannister.jpg">
-		<img src = "images/stark.jpg">
-		<img src = "images/targaryen.jpg">
+		<img id = "16" src = "images/baratheon.png">
+		<img id = "229" src = "images/lannister.jpg">
+		<img id = "362" src = "images/stark.jpg">
+		<img id = "376" src = "images/targaryen.jpg">
 	</div>
 	<div class = "details">
-
+		<h1> House Details </h1>
+		<h2>Name</h2>
+		<p class = "house"> </p>
+		<h2>Words</h2>
+		<p class = "words"></p>
+		<h2>Titles:</h2>
+		<p class = "titles"> </p>
 	<div>
+	<script>
+		$("img").click(function(){
+			var temp = $(this).attr("id")
+			$.get("https://anapioficeandfire.com/api/houses/" + temp,function(res){
+				$(".house").html(res.name)
+			})
+
+			var temp = $(this).attr("id")
+			$.get("https://anapioficeandfire.com/api/houses/" + temp,function(res){
+				$(".words").html(res.words)
+			})
+
+			var temp = $(this).attr("id")
+			$.get("https://anapioficeandfire.com/api/houses/" + temp,function(res){
+				// for(i = 0; i < res.titles.length; i++)
+					$(".titles").html(function(){
+						var titletemp = ""
+						for(i = 0; i < res.titles.length; i++){
+							titletemp = titletemp + "," + (res.titles[i]);
+						}
+							return titletemp;
+					})
+				}
+			)
+		})
+	</script>
 	</body>
-</html>
+</htmlj
